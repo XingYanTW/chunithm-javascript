@@ -1,2 +1,4 @@
-[Bookmarklet](javascript:(function(){fetch('https://raw.githubusercontent.com/XingYanTW/chunithm-javascript/main/ratingDetail.js').then(response=>response.text()).then(script=>eval(script));})();)
-[Bookmarklet](%28javascript%3A%28function%28%29%7Bfetch%28%27https%3A%2F%2Fraw.githubusercontent.com%2FXingYanTW%2Fchunithm-javascript%2Fmain%2FratingDetail.js%27%29.then%28response%3D%3Eresponse.text%28%29%29.then%28script%3D%3Eeval%28script%29%29%3B%7D%29%28%29%3B)
+Add url to Bookmarklet
+```
+javascript:(function(){fetch('https://raw.githubusercontent.com/XingYanTW/chunithm-javascript/main/ratingDetail.js').then(response=>response.text()).then(script=>eval(script));})();
+```
