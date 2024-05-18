@@ -1,0 +1,344 @@
+{
+  "playerData": [
+    {
+      "name": "☆ω☆ｘｙ♪",
+      "level": "7",
+      "rating": [
+        "https://chunithm-net-eng.com/mobile/images/rating/rating_gold_01.png",
+        "https://chunithm-net-eng.com/mobile/images/rating/rating_gold_05.png",
+        "https://chunithm-net-eng.com/mobile/images/rating/rating_gold_comma.png",
+        "https://chunithm-net-eng.com/mobile/images/rating/rating_gold_00.png",
+        "https://chunithm-net-eng.com/mobile/images/rating/rating_gold_09.png"
+      ],
+      "teamName": "☆ＮＩＣＥ　ＢＯＡＴ　ｏωｏｂ",
+      "lastPlayDate": "2024/05/04 10:07",
+      "title": "THE ACHIEVER／RATING 15.00",
+      "chara": "https://chunithm-net-eng.com/mobile/img/ad9435c98c06c5e5.png",
+      "overpower": "3638.37 (3.65%)"
+    }
+  ],
+  "best": [
+    {
+      "title": "POTENTIAL",
+      "score": "1004942",
+      "diff": "2",
+      "level": 14,
+      "rating": "15.40",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/6ee5024dfb85120a71686dfd0bc33f659486500307acb6a781999ff9054b2eb5.png"
+    },
+    {
+      "title": "アポカリプスに反逆の焔を焚べろ",
+      "score": "987458",
+      "diff": "3",
+      "level": 14.9,
+      "rating": "15.30",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/ef870789cc7cb79276003130a235b5d793862d75ad34550b5f16b7de673a1af5.png"
+    },
+    {
+      "title": "Last Celebration",
+      "score": "991309",
+      "diff": "3",
+      "level": 14.7,
+      "rating": "15.30",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/7a62fb2d43c22d027b0754be9f298e7556ae000387db47da0c9512190529c974.png"
+    },
+    {
+      "title": "ジングルベル",
+      "score": "995464",
+      "diff": "3",
+      "level": 14.5,
+      "rating": "15.30",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/33b8f6115ed0028013cc9298faf188aa40f83198e57cb20ac946af6c7a9c3549.png"
+    },
+    {
+      "title": "Mutation",
+      "score": "985161",
+      "diff": "3",
+      "level": 14.9,
+      "rating": "15.30",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/485f288c845b726ec4993d455d0f6c7438c288cc19fc75a3f979a355b0e80234.png"
+    },
+    {
+      "title": "祈 -我ら神祖と共に歩む者なり-",
+      "score": "993630",
+      "diff": "2",
+      "level": 14.5,
+      "rating": "15.20",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/71e3650215ec49a0279ee9a0dfe4ee541a95f4fb4af29152c835e01120eed077.png"
+    },
+    {
+      "title": "ENDYMION",
+      "score": "995348",
+      "diff": "2",
+      "level": 14.4,
+      "rating": "15.20",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/4b57899d8305c4d5edfc929c6cccb22a58c4d776587ac1051c006fcbd4bd4694.png"
+    },
+    {
+      "title": "Λzure Vixen",
+      "score": "1003818",
+      "diff": "2",
+      "level": 13.8,
+      "rating": "15.10",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/0676b21703021000f1b4463a29b5a21be409bb4b3df9ed56682205c3853fb3e4.png"
+    },
+    {
+      "title": "parvorbital",
+      "score": "976977",
+      "diff": "3",
+      "level": 15.1,
+      "rating": "15.10",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/861a1a1ca8d49bb8fb1de82e75f3da8502c0f61ddb7b1dc8eb5da779573a6fe9.png"
+    },
+    {
+      "title": "folern",
+      "score": "988860",
+      "diff": "3",
+      "level": 14.6,
+      "rating": "15.10",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/3b80f326362bd375fd574a141662eeed5608c3d64f36e986140d716e65d1a1d6.png"
+    },
+    {
+      "title": "Exitium",
+      "score": "983697",
+      "diff": "3",
+      "level": 14.8,
+      "rating": "15.10",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/c4d5c86464569d8700308aca0ca365aaa03af285e082dd78ae57d3405b6b282f.png"
+    },
+    {
+      "title": "Elemental Creation",
+      "score": "991076",
+      "diff": "3",
+      "level": 14.5,
+      "rating": "15.10",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/e072d6d2f25d2bb0c45330c7036c255b479c6072a2e6815aee60e64f40dcbfa0.png"
+    },
+    {
+      "title": "LAMIA",
+      "score": "1000112",
+      "diff": "2",
+      "level": 14.1,
+      "rating": "15.10",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/94d2cd9aba895f1f21cb32acc75c8cbe4632b69bf57ecb425eece7a8281a69b8.png"
+    },
+    {
+      "title": "DA'AT -The First Seeker of Souls-",
+      "score": "994675",
+      "diff": "2",
+      "level": 14.3,
+      "rating": "15.00",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/e4c9fe010404b2f1c77a155989073c67cff3575ef6f6faba586cda74c8bb674b.png"
+    },
+    {
+      "title": "Odin",
+      "score": "1003294",
+      "diff": "2",
+      "level": 13.7,
+      "rating": "15.00",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/4dd10c4af24178194fb8fe5637a0769c738b1869edfde7f73148bf1d59bf6378.png"
+    },
+    {
+      "title": "Fracture Ray",
+      "score": "982313",
+      "diff": "3",
+      "level": 14.7,
+      "rating": "14.90",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/1dc3271c9993794ce95f2333af8b2ef8c6aabd8b5edaa4deb9de14925ea3d21d.png"
+    },
+    {
+      "title": "Killing Rhythm",
+      "score": "992317",
+      "diff": "2",
+      "level": 14.3,
+      "rating": "14.90",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/dbd626156b9bf31fba7772e6406a8bb736dbbe2994fb6c72e443cd6e35949027.png"
+    },
+    {
+      "title": "LAMIA",
+      "score": "974660",
+      "diff": "3",
+      "level": 15,
+      "rating": "12.00",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/94d2cd9aba895f1f21cb32acc75c8cbe4632b69bf57ecb425eece7a8281a69b8.png"
+    },
+    {
+      "title": "Exitium",
+      "score": "1005288",
+      "diff": "2",
+      "level": 13.4,
+      "rating": "14.90",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/c4d5c86464569d8700308aca0ca365aaa03af285e082dd78ae57d3405b6b282f.png"
+    },
+    {
+      "title": "Re：End of a Dream",
+      "score": "1005158",
+      "diff": "2",
+      "level": 13.4,
+      "rating": "14.90",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/aa17d1f1bf459304d4b031211efd0a158465f6285e8c6d81cd9462b8e96ea6c7.png"
+    },
+    {
+      "title": "New York Back Raise",
+      "score": "990578",
+      "diff": "3",
+      "level": 14.3,
+      "rating": "14.90",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/06afd4d4a2cec2f90961dd46b65dd3a70add3ed070a7a60a45b07edb29945f5c.png"
+    },
+    {
+      "title": "TEmPTaTiON",
+      "score": "1003231",
+      "diff": "2",
+      "level": 13.5,
+      "rating": "14.80",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/5a9c93208ede98dcf1dc19e3a7b41e54f072c941827c92eec38e5ba097a7eb6a.png"
+    },
+    {
+      "title": "Vallista",
+      "score": "977886",
+      "diff": "3",
+      "level": 14.7,
+      "rating": "14.80",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/1da46a0e43f534d07a0b6e7009ddf9297f9d1a9e98b889bf2e16479926e4f6b2.png"
+    },
+    {
+      "title": "星界ちゃんと可不ちゃんのおつかい合騒曲",
+      "score": "985457",
+      "diff": "3",
+      "level": 14.4,
+      "rating": "14.80",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/9ce6ec639656ebebb43557ff4f1c4805da7d0db959f94c7196b1385b0bf7518d.png"
+    },
+    {
+      "title": "R.I.P.",
+      "score": "992451",
+      "diff": "3",
+      "level": 14.1,
+      "rating": "14.70",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/bd54d88e4752cf0acc2f5aea2b2120d3a4e950ed4673eeafd73b654b336d6751.png"
+    },
+    {
+      "title": "Falsum Atlantis.",
+      "score": "1006473",
+      "diff": "2",
+      "level": 13,
+      "rating": "14.70",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/6cbc6911c55489a49aa569b008c26f15168068ed0e1b3df96950a479b9a242eb.png"
+    },
+    {
+      "title": "Aleph-0",
+      "score": "1000719",
+      "diff": "2",
+      "level": 13.7,
+      "rating": "14.70",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/c875e440a79459379e60383dca439a2382587f23566564721a506d953c19f10a.png"
+    },
+    {
+      "title": "ピュグマリオンの咒文",
+      "score": "991337",
+      "diff": "3",
+      "level": 14.1,
+      "rating": "14.70",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/a267bdd53a22fdd2b87b269db2ecc8477889a0259f049d90f47e3500fb7b3bd0.png"
+    },
+    {
+      "title": "Titania",
+      "score": "998668",
+      "diff": "2",
+      "level": 13.8,
+      "rating": "14.70",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/1ceba374fb00df8e71ed29160b2ab021f339f4d4dd020308ddfc05150095739f.png"
+    },
+    {
+      "title": "Ascension to Heaven",
+      "score": "998327",
+      "diff": "2",
+      "level": 13.8,
+      "rating": "14.70",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/145080ae0df1b13abf507de44036b33e5de949b2a271f784a47805bb5c91aa7f.png"
+    }
+  ],
+  "recent": [
+    {
+      "title": "POTENTIAL",
+      "score": "1004942",
+      "diff": "2",
+      "level": 14,
+      "rating": "15.40",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/6ee5024dfb85120a71686dfd0bc33f659486500307acb6a781999ff9054b2eb5.png"
+    },
+    {
+      "title": "アポカリプスに反逆の焔を焚べろ",
+      "score": "987458",
+      "diff": "3",
+      "level": 14.9,
+      "rating": "15.30",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/ef870789cc7cb79276003130a235b5d793862d75ad34550b5f16b7de673a1af5.png"
+    },
+    {
+      "title": "Last Celebration",
+      "score": "991309",
+      "diff": "3",
+      "level": 14.7,
+      "rating": "15.30",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/7a62fb2d43c22d027b0754be9f298e7556ae000387db47da0c9512190529c974.png"
+    },
+    {
+      "title": "ジングルベル",
+      "score": "995464",
+      "diff": "3",
+      "level": 14.5,
+      "rating": "15.30",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/33b8f6115ed0028013cc9298faf188aa40f83198e57cb20ac946af6c7a9c3549.png"
+    },
+    {
+      "title": "Mutation",
+      "score": "985161",
+      "diff": "3",
+      "level": 14.9,
+      "rating": "15.30",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/485f288c845b726ec4993d455d0f6c7438c288cc19fc75a3f979a355b0e80234.png"
+    },
+    {
+      "title": "Λzure Vixen",
+      "score": "1003818",
+      "diff": "2",
+      "level": 13.8,
+      "rating": "15.10",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/0676b21703021000f1b4463a29b5a21be409bb4b3df9ed56682205c3853fb3e4.png"
+    },
+    {
+      "title": "parvorbital",
+      "score": "976977",
+      "diff": "3",
+      "level": 15.1,
+      "rating": "15.10",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/861a1a1ca8d49bb8fb1de82e75f3da8502c0f61ddb7b1dc8eb5da779573a6fe9.png"
+    },
+    {
+      "title": "folern",
+      "score": "988860",
+      "diff": "3",
+      "level": 14.6,
+      "rating": "15.10",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/3b80f326362bd375fd574a141662eeed5608c3d64f36e986140d716e65d1a1d6.png"
+    },
+    {
+      "title": "Exitium",
+      "score": "983697",
+      "diff": "3",
+      "level": 14.8,
+      "rating": "15.10",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/c4d5c86464569d8700308aca0ca365aaa03af285e082dd78ae57d3405b6b282f.png"
+    },
+    {
+      "title": "Elemental Creation",
+      "score": "991076",
+      "diff": "3",
+      "level": 14.5,
+      "rating": "15.10",
+      "jacket": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm/img/cover/e072d6d2f25d2bb0c45330c7036c255b479c6072a2e6815aee60e64f40dcbfa0.png"
+    }
+  ]
+}
