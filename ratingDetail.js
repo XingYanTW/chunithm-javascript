@@ -45,8 +45,6 @@ async function fetchMusicData(url) {
 
     return musicList;
 }
-
-
 async function fetchSongLevel(songName, difficulty) {
     try {
         const response = await fetch('https://dp4p6x0xfi5o9.cloudfront.net/chunithm/data.json');
@@ -69,7 +67,6 @@ async function fetchSongLevel(songName, difficulty) {
         throw error;
     }
 }
-
 async function fetchSongJackets(songIndices) {
     try {
         const response = await fetch('https://otoge-db.net/chunithm/data/music-ex.json');
@@ -89,7 +86,6 @@ async function fetchSongJackets(songIndices) {
         throw error;
     }
 }
-
 async function fetchPlayerData(url) {
     try {
         const response = await fetch(url, {
@@ -135,7 +131,6 @@ async function fetchPlayerData(url) {
         throw error;
     }
 }
-
 async function createImageFromJSON(data) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -157,7 +152,6 @@ async function createImageFromJSON(data) {
     // Trigger download
     downloadImage(imageData, 'Chunithm_Player_Data.png');
 }
-
 async function drawBackground(ctx, width, height) {
     const bgImage = new Image();
     bgImage.crossOrigin = "Anonymous";
@@ -171,7 +165,6 @@ async function drawBackground(ctx, width, height) {
         bgImage.onerror = reject;
     });
 }
-
 function renderPlayerData(ctx, playerData) {
     ctx.font = '20px Arial';
     let yOffset = 50;
@@ -184,7 +177,6 @@ function renderPlayerData(ctx, playerData) {
         yOffset += 120;
     });
 }
-
 async function renderBestSongsData(ctx, bestSongs) {
     let yOffset = 180; // Start the grid a bit lower to avoid overlapping with player data
     const columns = 5;
@@ -227,9 +219,11 @@ async function renderBestSongsData(ctx, bestSongs) {
 
             // Center-align and cut off text if it exceeds image width
             const text1 = `${song.title}`;
-            const text2 = `${song.level.toFixed(1)} -> ${song.rating}`;
+            const text2 = `${song.score}`;
+            const text3 = `${song.level.toFixed(1)} -> ${song.rating}`;
             const textX1 = x + (imageWidth - ctx.measureText(text1).width) / 2;
             const textX2 = x + (imageWidth - ctx.measureText(text2).width) / 2;
+            const textX3 = x + (imageWidth - ctx.measureText(text3).width) / 2;
             const maxTextWidth = imageWidth;
 
             // Function to cut text and add ellipsis if it exceeds max width
@@ -247,19 +241,20 @@ async function renderBestSongsData(ctx, bestSongs) {
 
             const truncatedText1 = cutTextToFit(text1, maxTextWidth);
             const truncatedText2 = cutTextToFit(text2, maxTextWidth);
+            const truncatedText3 = cutTextToFit(text3, maxTextWidth);
 
             //ctx.fillText(truncatedText1, x + (imageWidth - ctx.measureText(truncatedText1).width) / 2, y + imageHeight + textYOffset);
             //ctx.fillText(truncatedText2, x + (imageWidth - ctx.measureText(truncatedText2).width) / 2, y + imageHeight + textYOffset + 20);
 
             drawTextWithBorder(song, ctx, truncatedText1, x + (imageWidth - ctx.measureText(truncatedText1).width) / 2, y + imageHeight + textYOffset);
-            drawTextWithBorder(song, ctx, truncatedText2, x + (imageWidth - ctx.measureText(truncatedText2).width) / 2, y + imageHeight + textYOffset + 20);
+            drawTextWithBorder(song, ctx, truncatedText2, x + (imageWidth - ctx.measureText(truncatedText2).width) / 2, y + imageHeight + textYOffset+20);
+            drawTextWithBorder(song, ctx, truncatedText3, x + (imageWidth - ctx.measureText(truncatedText3).width) / 2, y + imageHeight + textYOffset + 40);
 
         } catch (error) {
             console.error(`Failed to load image: ${song.jacket}`, error);
         }
     }
 }
-
 function drawTextWithBorder(song, ctx, text, x, y, font = '20px Arial') {
     ctx.font = font;
     ctx.lineWidth = 1;
@@ -268,17 +263,14 @@ function drawTextWithBorder(song, ctx, text, x, y, font = '20px Arial') {
     ctx.fillStyle = diffToColor(parseInt(song.diff));
     ctx.fillText(text, x, y);
 }
-
 function diffToName(diff) {
     const diffNames = ["Basic", "Advanced", "Expert", "Master", "Ultima"];
     return diffNames[diff] || diff;
 }
-
 function diffToColor(diff) {
     const diffColors = ["#0e0", "#f7ff00", "#ff0000", "#ac00ce", "#000000"];
     return diffColors[diff] || "#000000";
 }
-
 function downloadImage(dataUrl, filename) {
     const link = document.createElement('a');
     link.href = dataUrl;
@@ -287,12 +279,6 @@ function downloadImage(dataUrl, filename) {
     link.click();
     document.body.removeChild(link);
 }
-
-
-
-
-
-
 async function convertToJSON() {
     const bestDataUrl = 'https://chunithm-net-eng.com/mobile/home/playerData/ratingDetailBest/';
     const recentDataUrl = 'https://chunithm-net-eng.com/mobile/home/playerData/ratingDetailRecent/';
@@ -313,7 +299,6 @@ async function convertToJSON() {
     //download(jsonData, "Chunithm-Data.json", "application/json");
     createImageFromJSON(musicData)
 }
-
 function download(content, fileName, contentType) {
     const a = document.createElement("a");
     const file = new Blob([content], { type: contentType });
@@ -321,39 +306,31 @@ function download(content, fileName, contentType) {
     a.download = fileName;
     a.click();
 }
-
 function get_ra(ds, score) {
-    let result = 0;
-    switch (true) {
-        case score >= 1009000:
-            result = Number(ds) + 2.15;
-            break;
-        case score >= 1007500:
-            result = Number(ds) + 2 + parseInt((score - 1007500) / 100) * 0.01;
-            break;
-        case score >= 1005000:
-            result = Number(ds) + 1.5 + parseInt((score - 1005000) / 500) * 0.1;
-            break;
-        case score >= 1000000:
-            result = Number(ds) + 1 + parseInt((score - 1000000) / 1000) * 0.1;
-            break;
-        case score >= 975000:
-            result = Number(ds) + parseInt((score - 975000) / 2500) * 0.1;
-            break;
-        case score >= 925000:
-            result = ds - 3;
-            break;
-        case score >= 900000:
-            result = ds - 5;
-            break;
-        case score >= 800000:
-            result = (ds - 5) / 2;
-            break;
-        default:
-            result = 0;
-            break;
-    }
-    return result;
+    let c = ds * 100;
+    const points = [
+        [1010000, c + 215],
+        [1009000, c + 215],
+        [1007500, c + 200],
+        [1005000, c + 150],
+        [1000000, c + 100],
+        [975000, c],
+        [925000, c - 300],
+        [900000, c - 500],
+        [800000, (c - 500) / 2],
+        [500000, 0],
+        [0, 0]
+    ];
+    let p = 1;
+    points.some(function(v, i) {
+        if (score > v[0]) {
+            p = i;
+            return true;
+        }
+    });
+    const prev = points[p - 1], cur = points[p];
+    const ret = cur[1] + (prev[1] - cur[1]) / (prev[0] - cur[0]) * (score - cur[0]);
+    return Math.floor(Math.max(0, ret)) / 100;
 }
 
 convertToJSON();
