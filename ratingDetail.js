@@ -69,8 +69,7 @@ async function fetchPlayerData(url) {
         if (playerProfile) {
             const playerName = playerProfile.querySelector('.player_name_in').textContent.trim();
             const playerLevel = playerProfile.querySelector('.player_lv').textContent.trim();
-            const playerRatingElements = playerProfile.querySelectorAll('.player_rating_num_block img');
-            const playerRating = parseFloat(playerRatingElements[0].getAttribute('src').match(/\d+\.\d+/)[0]);
+            const playerRating = playerProfile.querySelector('.player_rating').textContent.trim();
             const playerTeamName = playerProfile.querySelector('.player_team_name').textContent.trim();
             const playerLastPlayDate = playerProfile.querySelector('.player_lastplaydate_text').textContent.trim();
 
