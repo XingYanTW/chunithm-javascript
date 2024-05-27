@@ -1,3 +1,10 @@
+let json = [];
+
+async function setupFetch() {
+    const response = await fetch('https://dp4p6x0xfi5o9.cloudfront.net/chunithm/data.json');
+    json = await response.json();
+}
+
 async function fetchMusicData(url) {
     const response = await fetch(url, {
         credentials: 'include'
@@ -47,8 +54,6 @@ async function fetchMusicData(url) {
 }
 async function fetchSongLevel(songName, difficulty) {
     try {
-        const response = await fetch('https://dp4p6x0xfi5o9.cloudfront.net/chunithm/data.json');
-        const json = await response.json();
         const songs = json.songs;
 
         const filteredSongs = songs.filter(song => {
@@ -132,9 +137,10 @@ async function fetchPlayerData(url) {
     }
 }
 async function createImageFromJSON(data) {
+    let whiteblocktext = document.getElementById("whiteblocktext");
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    
+
     // Set canvas dimensions (adjust height as needed)
     canvas.width = 1260;
     canvas.height = 1922;
@@ -142,7 +148,7 @@ async function createImageFromJSON(data) {
     // Background
     // Draw the background image
     await drawBackground(ctx, canvas.width, canvas.height);
-
+    whiteblocktext.innerText += "\ndownloading Song Jackets";
     renderPlayerData(ctx, data.playerData);
     await renderBestSongsData(ctx, data.best);
 
@@ -150,13 +156,16 @@ async function createImageFromJSON(data) {
     const imageData = canvas.toDataURL('image/png');
 
     // Trigger download
+    
+    
     downloadImage(imageData, 'Chunithm_Player_Data.png');
+    whiteblocktext.innerText += "\nDone."
 }
 async function drawBackground(ctx, width, height) {
     const bgImage = new Image();
     bgImage.crossOrigin = "Anonymous";
     bgImage.src = 'https://raw.githubusercontent.com/XingYanTW/chunithm-javascript/main/bg.png';
-    
+
     await new Promise((resolve, reject) => {
         bgImage.onload = () => {
             ctx.drawImage(bgImage, 0, 0, width, height);
@@ -164,6 +173,8 @@ async function drawBackground(ctx, width, height) {
         };
         bgImage.onerror = reject;
     });
+    ctx.fillStyle = "rgb(128, 128, 128, 0.7)";
+    ctx.fillRect(32, 161, 1196, 1751);
 }
 function renderPlayerData(ctx, playerData) {
     ctx.font = '20px Arial';
@@ -247,7 +258,7 @@ async function renderBestSongsData(ctx, bestSongs) {
             //ctx.fillText(truncatedText2, x + (imageWidth - ctx.measureText(truncatedText2).width) / 2, y + imageHeight + textYOffset + 20);
 
             drawTextWithBorder(song, ctx, truncatedText1, x + (imageWidth - ctx.measureText(truncatedText1).width) / 2, y + imageHeight + textYOffset);
-            drawTextWithBorder(song, ctx, truncatedText2, x + (imageWidth - ctx.measureText(truncatedText2).width) / 2, y + imageHeight + textYOffset+20);
+            drawTextWithBorder(song, ctx, truncatedText2, x + (imageWidth - ctx.measureText(truncatedText2).width) / 2, y + imageHeight + textYOffset + 20);
             drawTextWithBorder(song, ctx, truncatedText3, x + (imageWidth - ctx.measureText(truncatedText3).width) / 2, y + imageHeight + textYOffset + 40);
 
         } catch (error) {
@@ -257,10 +268,10 @@ async function renderBestSongsData(ctx, bestSongs) {
 }
 function drawTextWithBorder(song, ctx, text, x, y, font = '20px Arial') {
     ctx.font = font;
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = '#000000'; // Black border
-    ctx.strokeText(text, x, y);
-    ctx.fillStyle = diffToColor(parseInt(song.diff));
+    ctx.lineWidth = 3;
+    //ctx.strokeStyle = '#000000'; // Black border
+    //ctx.strokeText(text, x, y);
+    ctx.fillStyle = '#ffffff';
     ctx.fillText(text, x, y);
 }
 function diffToName(diff) {
@@ -279,26 +290,86 @@ function downloadImage(dataUrl, filename) {
     link.click();
     document.body.removeChild(link);
 }
+
+function whiteblock() {
+    let whiteBlock = document.createElement('div');
+    whiteBlock.style.width = '500px';
+    whiteBlock.style.position = 'fixed';
+    whiteBlock.style.top = '50%';
+    whiteBlock.style.left = '50%';
+    whiteBlock.style.transform = 'translate(-50%, -50%)';
+    whiteBlock.style.backgroundColor = 'white';
+    whiteBlock.style.padding = '20px';
+    whiteBlock.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.5)';
+    whiteBlock.style.borderRadius = '8px';
+    whiteBlock.style.zIndex = '1000';
+    whiteBlock.innerHTML = '<div id="intro"><h id="title">Chunithm Best 30 Image Generator</h><br><a href="https://github.com/XingYanTW/chunithm-javascript" target="_blank">Chunithm-Javascript</a></div><hr><div id="whiteblocktext"></div> <br> <div id="whiteblockbutton" onClick="document.getElementById(\'whiteblock\').remove()">close</div>'
+    whiteBlock.setAttribute("id", "whiteblock");
+    document.body.appendChild(whiteBlock);
+    let button = document.getElementById("whiteblockbutton");
+    button.style.background = 'lime';
+    button.style.borderRadius = '8px';
+    button.style.width = '100px';
+    button.style.marginLeft = '38%';
+    button.style.padding = '10px 0';
+    button.style.webkitUserSelect = 'none';
+    button.style.mozUserSelect = 'none';
+    button.style.msUserSelect = 'none';
+    button.style.userSelect = 'none';
+    button.style.boxShadow = 'rgba(0, 0, 0, 0.5) 0px 0px 5px'
+    button.style.textAlign = 'center';
+    let intro = document.getElementById("intro");
+    intro.style.textAlign = 'left';
+    let texts = document.getElementById("whiteblocktext");
+    texts.style.textAlign = 'left';
+    let title = document.getElementById("title");
+    title.style.fontSize= '20px';
+}
+
 async function convertToJSON() {
+
+    if (window.location.href.startsWith("https://new.chunithm-net.com/")) {
+        alert("Japanese ver. is not supported.");
+        return;
+    } else if (!window.location.href.startsWith("https://chunithm-net-eng.com/")) {
+        alert("This is not Chunithm-Net.");
+        return;
+    }
+
+    if (document.getElementById("whiteblock")){
+        alert("Don't use the script multiply!");
+        return;
+    }
+
+    whiteblock();
+    let whiteblocktext = document.getElementById("whiteblocktext");
+
+    whiteblocktext.innerText = "fetching Songs Data\n";
+    await setupFetch();
+    
     const bestDataUrl = 'https://chunithm-net-eng.com/mobile/home/playerData/ratingDetailBest/';
-    const recentDataUrl = 'https://chunithm-net-eng.com/mobile/home/playerData/ratingDetailRecent/';
+    //const recentDataUrl = 'https://chunithm-net-eng.com/mobile/home/playerData/ratingDetailRecent/';
+    
     const playerDataUrl = 'https://chunithm-net-eng.com/mobile/home/';
 
+    whiteblocktext.innerHTML += "\n fetching Player Data";
     const playerData = await fetchPlayerData(playerDataUrl);
+    whiteblocktext.innerHTML += "<br>fetching Best Songs";
     const bestData = await fetchMusicData(bestDataUrl);
-    const recentData = await fetchMusicData(recentDataUrl);
+    //const recentData = await fetchMusicData(recentDataUrl);
 
     const musicData = {
         playerData: playerData,
         best: bestData,
-        recent: recentData
+        //recent: recentData
     };
 
-    const jsonData = JSON.stringify(musicData, null, 2);
+    //const jsonData = JSON.stringify(musicData, null, 2);
     console.log(JSON.stringify(playerData, null, 2));
     //download(jsonData, "Chunithm-Data.json", "application/json");
     createImageFromJSON(musicData)
 }
+
 function download(content, fileName, contentType) {
     const a = document.createElement("a");
     const file = new Blob([content], { type: contentType });
@@ -322,7 +393,7 @@ function get_ra(ds, score) {
         [0, 0]
     ];
     let p = 1;
-    points.some(function(v, i) {
+    points.some(function (v, i) {
         if (score > v[0]) {
             p = i;
             return true;
