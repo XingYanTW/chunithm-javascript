@@ -110,11 +110,17 @@ async function fetchPlayerData(url) {
             playerRatingElements.forEach(rating => {
                 playerRating.push(rating.getAttribute('src'));
             })
-            const playerTeamName = playerProfile.querySelector('.player_team_name').textContent.trim();
+            const playerTeamName = "";
+            try {
+                 playerTeamName = playerProfile.querySelector('.player_team_name').textContent.trim();
+            } catch (e){
+                console.log(e);
+            }
             const playerLastPlayDate = playerProfile.querySelector('.player_lastplaydate_text').textContent.trim();
             const playerTitle = playerProfile.querySelector('.player_honor_text').textContent.trim();
             const playerChara = playerProfile.querySelector('.player_chara img').getAttribute('src');
             const playerOverPower = playerProfile.querySelector('.player_overpower_text').textContent.trim();
+            const playerTitlePlate = playerProfile.querySelector('.player_honor_short').style.backgroundImage.slice(5,-2);
 
             playerData.push({
                 name: playerName,
@@ -123,11 +129,13 @@ async function fetchPlayerData(url) {
                 teamName: playerTeamName,
                 lastPlayDate: playerLastPlayDate,
                 title: playerTitle,
+                plate: playerTitlePlate,
                 chara: playerChara,
                 overpower: playerOverPower
             });
         } else {
-            console.error('Player profile not found.');
+            alert('Player profile not found.');
+            document.getElementById("whiteblock").remove();
         }
 
         return playerData;
