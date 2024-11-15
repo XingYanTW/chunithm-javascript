@@ -211,7 +211,7 @@ async function drawBackground(ctx, width, height) {
     ctx.fillRect(32, 161, 1196, 1751);
 }
 function renderPlayerData(ctx, playerData) {
-    ctx.font = '20px Arial';
+    ctx.font = '28px Noto Sans TC';
     let yOffset = 50;
     ctx.fillStyle = '#000000';
     playerData.forEach(player => {
@@ -259,7 +259,7 @@ async function renderBestSongsData(ctx, bestSongs) {
             ctx.drawImage(jacketImg, x, y, imageWidth, imageHeight);
 
             // Draw text
-            ctx.font = '20px Arial';
+            ctx.font = '20px Noto Sans TC';
             ctx.fillStyle = diffToColor(parseInt(song.diff));
 
             // Center-align and cut off text if it exceeds image width
@@ -300,7 +300,7 @@ async function renderBestSongsData(ctx, bestSongs) {
         }
     }
 }
-function drawTextWithBorder(song, ctx, text, x, y, font = '20px Arial') {
+function drawTextWithBorder(song, ctx, text, x, y, font = '28px Noto Sans TC') {
     ctx.font = font;
     ctx.lineWidth = 3;
     //ctx.strokeStyle = '#000000'; // Black border
