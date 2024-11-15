@@ -6,21 +6,35 @@ async function setupFetch() {
 }
 
 async function fetchMusicData(url) {
+    console.log("Fetching music data from URL:", url);
     const response = await fetch(url, {
         credentials: 'include'
     });
+    console.log("Response received:", response);
+
     const text = await response.text();
+    console.log("Response text fetched:", text);
+
     const parser = new DOMParser();
     const doc = parser.parseFromString(text, 'text/html');
+    console.log("HTML parsed:", doc);
 
     const musicList = [];
     const musicBoxes = doc.querySelectorAll('.musiclist_box');
+    console.log("Music boxes found:", musicBoxes);
 
     for (const box of musicBoxes) {
         const title = box.querySelector('.music_title').textContent;
+        console.log("Title found:", title);
+
         const score = box.querySelector('.play_musicdata_highscore .text_b').textContent.replaceAll(",", "");
+        console.log("Score found:", score);
+
         const diff = box.querySelector('input[name="diff"]').value;
+        console.log("Difficulty value found:", diff);
+
         const idx = box.querySelector('input[name="idx"]').value;
+        console.log("Index value found:", idx);
 
         musicList.push({
             title: title.trim(),
@@ -28,19 +42,34 @@ async function fetchMusicData(url) {
             diff: diff.trim(),
             idx: idx.trim()
         });
+        console.log("Music list updated:", musicList);
     }
 
     const songTitles = musicList.map(song => song.title);
+    console.log("Song titles extracted:", songTitles);
+
     const songIndices = musicList.map(song => song.idx);
+    console.log("Song indices extracted:", songIndices);
 
     // Fetch all song jackets at once
     const jackets = await fetchSongJackets(songIndices);
+    console.log("Jackets fetched:", jackets);
 
     for (let i = 0; i < musicList.length; i++) {
         const song = musicList[i];
-        const level = await fetchSongLevel(song.title, parseInt(song.diff));
+        console.log("Processing song:", song);
+        let level;
+        try{
+            level = await fetchSongLevel(song.title, parseInt(song.diff));
+        } catch (e){
+            console.log(e);
+        }   
+        console.log("Level fetched for song:", level);
         const rating = get_ra(level, song.score);
+        console.log("Rating calculated:", rating);
+
         const jacket = jackets.find(jacket => jacket.idx === song.idx);
+        console.log("Jacket found:", jacket);
 
         musicList[i] = {
             ...song,
@@ -48,10 +77,13 @@ async function fetchMusicData(url) {
             rating: rating.toFixed(2),
             jacket: jacket ? jacket.url : null
         };
+        console.log("Updated song data:", musicList[i]);
     }
 
+    console.log("Final music list:", musicList);
     return musicList;
 }
+
 async function fetchSongLevel(songName, difficulty) {
     try {
         const songs = json.songs;
@@ -110,12 +142,7 @@ async function fetchPlayerData(url) {
             playerRatingElements.forEach(rating => {
                 playerRating.push(rating.getAttribute('src'));
             })
-            const playerTeamName = "";
-            try {
-                 playerTeamName = playerProfile.querySelector('.player_team_name').textContent.trim();
-            } catch (e){
-                console.log(e);
-            }
+            const playerTeamName = playerProfile.querySelector('.player_team_name')?.textContent.trim() || "";
             const playerLastPlayDate = playerProfile.querySelector('.player_lastplaydate_text').textContent.trim();
             const playerTitle = playerProfile.querySelector('.player_honor_text').textContent.trim();
             const playerChara = playerProfile.querySelector('.player_chara img').getAttribute('src');
@@ -137,7 +164,6 @@ async function fetchPlayerData(url) {
             alert('Player profile not found.');
             document.getElementById("whiteblock").remove();
         }
-
         return playerData;
     } catch (error) {
         console.error('Error fetching player data:', error);
@@ -363,8 +389,14 @@ async function convertToJSON() {
     whiteblocktext.innerHTML += "\n fetching Player Data";
     const playerData = await fetchPlayerData(playerDataUrl);
     whiteblocktext.innerHTML += "<br>fetching Best Songs";
-    const bestData = await fetchMusicData(bestDataUrl);
+    let bestData;
+    try{
+        bestData = await fetchMusicData(bestDataUrl);
+    } catch (e){
+        whiteblocktext.innerHTML += "<br>"+e;
+    }
     //const recentData = await fetchMusicData(recentDataUrl);
+    //console.log(await fetchPlayerData(playerDataUrl));
 
     const musicData = {
         playerData: playerData,
